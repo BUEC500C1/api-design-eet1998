@@ -16,7 +16,13 @@ def home():
 app.run()
 
 # Function to call OpenWeaterMap API
-#def api_call(city_name):
-    #base_url = "api.openweathermap.org/data/2.5/weather?"
-    #complete_url = base_url + "appid=" + api_key + "q=" + city_name
-    #response = requests.get(complete_url)
+def api_call(city):
+    base_url = "api.openweathermap.org/data/2.5/weather?"
+    complete_url = base_url + "appid=" + api_key + "q=" + city_name
+    response = requests.get(complete_url)
+    # Converts data from JSON to Python format
+    x = response.json()
+
+    if x["cod"] != "404":
+        y = x["main"]
+        temp = 
