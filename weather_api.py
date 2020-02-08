@@ -25,4 +25,4 @@ def api_call(city):
 
     if x["cod"] != "404":
         y = x["main"]
-        temp = 
+    
