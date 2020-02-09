@@ -5,6 +5,7 @@
 import requests
 import json
 import flask
+from find_csv import find_city
 
 # Creates Flask application server
 app = flask.Flask(__name__)
@@ -25,4 +26,19 @@ def api_call(city):
 
     if x["cod"] != "404":
         y = x["main"]
+
+# Main function to receive user input and make appropriate function calls
+def main():
+    user_choice = input("Would you like to receive the weather at a city or an airport? Enter C for city and A for airport:")
+    if user_choice == "C":
+        city = input("Please enter a city name:")
+        api_call(city)
+        print()
+    if user_choice == "A":
+        airport = input("Please enter an airport name:")
+        find_city(airport)
+        print()
+
+if __name__ == '__main__':
+    main()
     
