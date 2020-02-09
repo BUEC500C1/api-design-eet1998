@@ -16,10 +16,13 @@ def home():
     return "<h1>Erin's Weather API</h1><p>This site returns the weather information for a given United States airport.</p>"
 app.run()
 
+# API key received from openweathermap.org 
+api_key = 'd9c3071452f6c3314a2576e2e82f3354'
+
 # Function to call OpenWeaterMap API
 def api_call(city):
     base_url = "api.openweathermap.org/data/2.5/weather?"
-    complete_url = base_url + "appid=" + api_key + "q=" + city_name
+    complete_url = base_url + "appid=" + api_key + "q=" + city
     response = requests.get(complete_url)
     # Converts data from JSON to Python format
     x = response.json()
@@ -29,15 +32,20 @@ def api_call(city):
 
 # Main function to receive user input and make appropriate function calls
 def main():
-    user_choice = input("Would you like to receive the weather at a city or an airport? Enter C for city and A for airport:")
-    if user_choice == "C":
-        city = input("Please enter a city name:")
-        api_call(city)
-        print()
-    if user_choice == "A":
-        airport = input("Please enter an airport name:")
-        find_city(airport)
-        print()
+    while True:
+        user_choice = input("Would you like to receive the weather at a city or an airport? Enter C for city and A for airport:")
+        # Error check user input
+        if (user_choice != "C") & (user_choice != "A"):
+            print("Error: Please enter either C for city or A for airport.")
+        if user_choice == "C":
+            city = input("Please enter a city name:")
+            api_call(city)
+            print()
+        if user_choice == "A":
+            airport = input("Please enter an airport name:")
+            municipality = find_city(airport)
+            api_call(municipality)
+            print()
 
 if __name__ == '__main__':
     main()
