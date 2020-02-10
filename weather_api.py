@@ -1,40 +1,40 @@
 # Erin Thomas / U26838058 / EC 500: Building Software / Assignment 2
 # Python program to find weather information for any U.S. airport using OpenWeatherMap API
-# References: https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask, https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/
+# References: https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask, https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/, https://realpython.com/python-keyerror/ 
 
 import requests
 import json
 import flask
+from flask import jsonify
+from flask import request
 from find_csv import find_city
 
 # Creates Flask application server
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
-@app.route('/', methods=['GET'])
-def home():
-    return "<h1>Erin's Weather API</h1><p>This site returns the weather information for a given United States airport.</p>"
-app.run()
+#@app.route('/', methods=['GET'])
+#def home():
+    #return "<h1>Erin's Weather API</h1><p>This site returns the weather information for a given United States airport.</p>"
+#app.run()
 
 # API key received from openweathermap.org 
 api_key = 'd9c3071452f6c3314a2576e2e82f3354'
 
 # Function to call OpenWeaterMap API
 def api_call(city):
-    base_url = "api.openweathermap.org/data/2.5/weather?"
+    base_url = "http://api.openweathermap.org/data/2.5/weather?"
     complete_url = base_url + "appid=" + api_key + "q=" + city
     response = requests.get(complete_url)
     # Converts data from JSON to Python format
     x = response.json()
 
     if x["cod"] != "404":
-        y = x["main"]
-
-        current_temperature = y["temp"]
-        current_pressure = y["pressure"]
-        current_humidity = y["humidity"]
-        z = x["weather"]
-        weather_description = z[0]["description"]
+        
+        current_temperature = x["main"]["temp"]
+        current_pressure = x["main"]["pressure"]
+        current_humidity = x["main"]["humidity"]
+        weather_description = x["weather"][0]["description"]
 
         print("Temperature: " + str(current_temperature))
         print("Atmospheric Pressure: " + str(current_pressure))
