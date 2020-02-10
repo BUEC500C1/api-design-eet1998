@@ -30,6 +30,7 @@ def api_call(city):
     # Converts data from JSON to Python format
     x = response.json()
 
+    # Stores values of keys in data
     if x["cod"] != "404":
         
         current_temperature = x["main"]["temp"]
