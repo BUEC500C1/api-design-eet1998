@@ -5,7 +5,6 @@ import csv
 def find_city(airport):
     with open("airports.csv", 'r') as file:
         csv_file = csv.DictReader(file)
-        # Iterates through all rows in .csv file and returns municipality for given input airport
         for row in csv_file:
             if row[3] == airport:
                 return row[10]
