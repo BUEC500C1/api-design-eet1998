@@ -37,9 +37,9 @@ def api_call(city):
         current_humidity = x["main"]["humidity"]
         weather_description = x["weather"][0]["description"]
 
-        print("Temperature: " + str(current_temperature))
-        print("Atmospheric Pressure: " + str(current_pressure))
-        print("Humidity: " + str(current_humidity))
+        print("Temperature: " + str(current_temperature)) + " K")
+        print("Atmospheric Pressure: " + str(current_pressure) + " hPa")
+        print("Humidity: " + str(current_humidity)+ " %")
         print("Weather Description: " + str(weather_description))
     
     else:
@@ -47,8 +47,9 @@ def api_call(city):
 
 # Main function to receive user input and make appropriate function calls
 def main():
+    print("Hello. Welcome to my weather app.") ; sleep(1.0)
+
     while True:
-        print("Hello. Welcome to my weather app.") ; sleep(1.0)
         user_choice = input("Would you like to receive the weather at a city or an airport? Enter C for city and A for airport (or enter Q to quit): ")
         # Error check user input
         if (user_choice != "C") & (user_choice != "A") & (user_choice!= "Q"):
