@@ -5,6 +5,7 @@
 import requests
 import json
 import flask
+from time import sleep
 from flask import jsonify
 from flask import request
 from find_city import find_city
@@ -47,6 +48,7 @@ def api_call(city):
 # Main function to receive user input and make appropriate function calls
 def main():
     while True:
+        print("Hello. Welcome to my weather app.") ; sleep(1.0)
         user_choice = input("Would you like to receive the weather at a city or an airport? Enter C for city and A for airport (or enter Q to quit): ")
         # Error check user input
         if (user_choice != "C") & (user_choice != "A") & (user_choice!= "Q"):
@@ -61,6 +63,8 @@ def main():
             api_call(municipality)
             print()
         if user_choice == "Q":
+            sleep(1.0)
+            print("Goodbye.")
             break
 
 if __name__ == '__main__':
