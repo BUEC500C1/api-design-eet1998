@@ -19,3 +19,4 @@ This code calls the API from openweathermap.org and uses it to get the weather i
 - https://programminghistorian.org/en/lessons/creating-apis-with-python-and-flask
 - https://www.geeksforgeeks.org/python-find-current-weather-of-any-city-using-openweathermap-api/
 - https://realpython.com/python-keyerror/ 
+- https://docs.python.org/3.4/library/csv.html?highlight=csv
