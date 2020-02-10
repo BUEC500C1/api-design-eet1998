@@ -1,5 +1,4 @@
 import pytest
-from weather_api import api_call
 from find_city import find_city
 
 def test_good_1():
