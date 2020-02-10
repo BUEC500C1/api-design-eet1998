@@ -37,7 +37,7 @@ def api_call(city):
         current_humidity = x["main"]["humidity"]
         weather_description = x["weather"][0]["description"]
 
-        print("Temperature: " + str(current_temperature)) + " K")
+        print("Temperature: " + str(current_temperature) + " K")
         print("Atmospheric Pressure: " + str(current_pressure) + " hPa")
         print("Humidity: " + str(current_humidity)+ " %")
         print("Weather Description: " + str(weather_description))
