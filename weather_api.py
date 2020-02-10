@@ -47,19 +47,21 @@ def api_call(city):
 # Main function to receive user input and make appropriate function calls
 def main():
     while True:
-        user_choice = input("Would you like to receive the weather at a city or an airport? Enter C for city and A for airport:")
+        user_choice = input("Would you like to receive the weather at a city or an airport? Enter C for city and A for airport (or enter Q to quit): ")
         # Error check user input
-        if (user_choice != "C") & (user_choice != "A"):
+        if (user_choice != "C") & (user_choice != "A") & (user_choice!= "Q"):
             print("Error: Please enter either C for city or A for airport.")
         if user_choice == "C":
-            city = input("Please enter a city name:")
+            city = input("Please enter a city name: ")
             api_call(city)
             print()
         if user_choice == "A":
-            airport = input("Please enter an airport name:")
+            airport = input("Please enter an airport name: ")
             municipality = find_city(airport)
             api_call(municipality)
             print()
+        if user_choice == "Q":
+            break
 
 if __name__ == '__main__':
     main()
