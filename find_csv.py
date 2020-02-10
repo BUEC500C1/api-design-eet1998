@@ -1,5 +1,4 @@
 # Reference: https://www.programiz.com/python-programming/reading-csv-files
-
 import csv
 
 # Iterates through all rows in the .csv file and returns city for airport input

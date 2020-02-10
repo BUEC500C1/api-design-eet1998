@@ -30,6 +30,20 @@ def api_call(city):
     if x["cod"] != "404":
         y = x["main"]
 
+        current_temperature = y["temp"]
+        current_pressure = y["pressure"]
+        current_humidity = y["humidity"]
+        z = x["weather"]
+        weather_description = z[0]["description"]
+
+        print("Temperature: " + str(current_temperature))
+        print("Atmospheric Pressure: " + str(current_pressure))
+        print("Humidity: " + str(current_humidity))
+        print("Weather Description: " + str(weather_description))
+    
+    else:
+        print("Error!")
+
 # Main function to receive user input and make appropriate function calls
 def main():
     while True:
