@@ -7,7 +7,7 @@ import json
 import flask
 from flask import jsonify
 from flask import request
-from find_csv import find_city
+from find_city import find_city
 
 # Creates Flask application server
 app = flask.Flask(__name__)
@@ -23,8 +23,8 @@ api_key = 'd9c3071452f6c3314a2576e2e82f3354'
 
 # Function to call OpenWeaterMap API
 def api_call(city):
-    base_url = "http://api.openweathermap.org/data/2.5/weather?"
-    complete_url = base_url + "appid=" + api_key + "q=" + city
+    base_url = "http://api.openweathermap.org/data/2.5/weather?q="
+    complete_url = base_url + city + "&appid=" + api_key
     response = requests.get(complete_url)
     # Converts data from JSON to Python format
     x = response.json()
