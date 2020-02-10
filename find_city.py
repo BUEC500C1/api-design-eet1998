@@ -8,9 +8,7 @@ def find_city(airport):
         for row in csv_file:
             if row[3] == airport:
                 return row[10]
-            #if row[3] != airport:
-                #print("Not a valid airport.")
-                #break
-    return
+
+    return 0
 
 
